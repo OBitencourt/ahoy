@@ -11,5 +11,19 @@ export const auth = betterAuth({
     enabled: true,
   },
   database: mongodbAdapter(db),
-  plugins: [nextCookies()]
+  plugins: [nextCookies()],
+  socialProviders: {
+    google: {
+      clientId: process.env.GOOGLE_CLIENT_ID as string,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
+      // Mostra sempre o seletor de contas Google
+      prompt: "select_account",
+    },
+  },
+  account: {
+    accountLinking: {
+      enabled: true,
+      trustedProviders: ["google"],
+    },
+  },
 });

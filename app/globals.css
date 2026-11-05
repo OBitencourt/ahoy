@@ -1,26 +1,26 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
+/* Tokens do design (Figma — PSDI Projeto Ahoy) */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-navy: #0b3d5b;
+  --color-ink: #18313d;
+  --color-muted: #607783;
+  --color-teal: #2ec4b6;
+  --color-on-teal: #082b3a;
+  --color-line: #dce6e5;
+
+  /* Fundos dos tipos de anúncio e do estado selecionado */
+  --color-mint: #eaf8f4;
+  --color-sky: #edf4f8;
+  --color-sand: #f8f4e8;
+
+  --font-brand: var(--nf-piazzolla), serif;
+  --font-ui: var(--nf-jakarta), sans-serif;
+  --font-inter: var(--nf-inter), sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  body {
+    @apply bg-white font-ui;
   }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }
