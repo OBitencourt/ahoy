@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import { listingLabels, type ListingType, type ObjectListing } from "@/src/lib/objects";
 
@@ -16,14 +17,13 @@ const badgeColors: Record<ListingType, string> = {
   aluguer: "bg-sand",
 };
 
-/** Objeto: 282 × 392 no Figma */
 export default function ObjectCard({ object }: { object: ObjectListing }) {
   const [saved, setSaved] = useState(Boolean(object.saved));
-  const { title, type, area, distance, pricePerDay, condition, photo } = object;
+  const { id, title, type, area, distance, pricePerDay, condition, photo } = object;
 
   return (
-    <article className="flex flex-col overflow-hidden rounded-2xl border border-line bg-white">
-      <div className="relative h-[212px] shrink-0">
+    <article className="relative flex flex-col overflow-hidden rounded-2xl border border-line hover:scale-[102%] bg-white transition hover:bg-sand-50 hover:shadow">
+      <div className="relative h-53 shrink-0">
         <Image
           src={photo}
           alt={title}
@@ -33,7 +33,7 @@ export default function ObjectCard({ object }: { object: ObjectListing }) {
         />
         <button
           type="button"
-          className="absolute right-3 top-3 flex size-11 cursor-pointer items-center justify-center rounded-full bg-white"
+          className="absolute right-3 top-3 z-10 flex size-11 cursor-pointer items-center justify-center rounded-full bg-white"
           aria-label={saved ? "Remover dos favoritos" : "Guardar nos favoritos"}
           aria-pressed={saved}
           onClick={() => setSaved((value) => !value)}
@@ -61,8 +61,14 @@ export default function ObjectCard({ object }: { object: ObjectListing }) {
         </span>
 
         <div className="flex w-full flex-col gap-1">
-          <h3 className="truncate text-lg font-bold leading-[26px] text-on-teal">
-            {title}
+          <h3 className="truncate text-lg font-bold leading-6.5 text-on-teal">
+            {/* Link esticado: o ::after cobre o cartão todo, menos o botão de favorito (z-10) */}
+            <Link
+              href={`/artefacto/${id}`}
+              className="after:absolute after:inset-0 after:rounded-2xl focus-visible:after:outline-2 focus-visible:after:outline-offset-2 focus-visible:after:outline-teal"
+            >
+              {title}
+            </Link>
           </h3>
           <p className="flex items-center gap-1 whitespace-nowrap text-sm font-normal leading-5 text-muted">
             <Image
@@ -79,12 +85,12 @@ export default function ObjectCard({ object }: { object: ObjectListing }) {
         <div className="flex w-full items-center justify-between border-t border-line pt-2.5">
           <div className="flex flex-col gap-0.5 whitespace-nowrap">
             {pricePerDay !== undefined ? (
-              <p className="text-lg font-bold leading-[26px] text-navy">
+              <p className="text-lg font-bold leading-6.5 text-navy">
                 {pricePerDay} €
                 <span className="text-sm font-normal text-muted"> /dia</span>
               </p>
             ) : (
-              <p className="text-lg font-bold leading-[26px] text-navy">Grátis</p>
+              <p className="text-lg font-bold leading-6.5 text-navy">Grátis</p>
             )}
             <p className="text-xs font-normal leading-4 text-muted">{condition}</p>
           </div>

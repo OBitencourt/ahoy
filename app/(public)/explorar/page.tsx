@@ -5,7 +5,7 @@ import SearchFilters from "@/src/components/searchFilters";
 export default function Home() {
   return (
     <>
-      <main className="flex flex-col gap-8 px-6 py-10 xl:px-[120px]">
+      <main className="flex flex-col gap-8 px-6 py-10 xl:px-30">
         <SearchFilters />
         <Results />
         <SignOutButton />

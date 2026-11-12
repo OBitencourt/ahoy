@@ -16,7 +16,7 @@ export default function Results() {
         <div className="flex items-baseline gap-3 whitespace-nowrap">
           <h2
             id="resultados-titulo"
-            className="text-[22px] font-bold leading-[30px] text-on-teal"
+            className="text-[22px] font-bold leading-7.5 text-on-teal"
           >
             À tua volta
           </h2>

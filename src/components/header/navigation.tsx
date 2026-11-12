@@ -1,10 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 
-/** Navegação: 1440 × 88 no Figma (não usada na página Explorar) */
 export default function Navigation() {
   return (
-    <header className="flex h-[88px] items-center justify-between border-b border-line bg-white px-6 xl:px-[120px]">
+    <header className="flex h-22 items-center justify-between border-b border-line bg-white px-6 xl:px-30">
       <Link href="/" className="flex items-center gap-2.5" aria-label="Ahoy">
         <Image
           src="/assets/logo.svg"
@@ -50,8 +49,8 @@ export default function Navigation() {
           <Image src="/assets/plus.svg" width={20} height={20} alt="" />
           <span>Publicar</span>
         </Link>
-        <button
-          type="button"
+        <Link
+          href="/perfil"
           className="flex cursor-pointer items-center gap-2"
           aria-label="Menu da conta"
           aria-haspopup="menu"
@@ -64,7 +63,7 @@ export default function Navigation() {
             className="size-10 rounded-full object-cover"
           />
           <Image src="/assets/chevron-down.svg" width={16} height={16} alt="" />
-        </button>
+        </Link>
       </div>
     </header>
   );
