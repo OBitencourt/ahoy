@@ -17,12 +17,20 @@ const badgeColors: Record<ListingType, string> = {
   aluguer: "bg-sand",
 };
 
-export default function ObjectCard({ object }: { object: ObjectListing }) {
+export default function ObjectCard({
+  object,
+  showDistance = true,
+}: {
+  object: ObjectListing;
+  /** No perfil público a localização é só "bairro, cidade" (sem distância). */
+  showDistance?: boolean;
+}) {
   const [saved, setSaved] = useState(Boolean(object.saved));
-  const { id, title, type, area, distance, pricePerDay, condition, photo } = object;
+  const { id, title, type, area, city, distance, pricePerDay, condition, photo } =
+    object;
 
   return (
-    <article className="relative flex flex-col overflow-hidden rounded-2xl border border-line hover:scale-[102%] bg-white transition hover:bg-sand-50 hover:shadow">
+    <article className="relative flex flex-col overflow-hidden rounded-2xl border border-line bg-white">
       <div className="relative h-53 shrink-0">
         <Image
           src={photo}
@@ -78,7 +86,7 @@ export default function ObjectCard({ object }: { object: ObjectListing }) {
               alt=""
               className="shrink-0"
             />
-            {area} · {distance}
+            {showDistance ? `${area} · ${distance}` : `${area}, ${city}`}
           </p>
         </div>
 

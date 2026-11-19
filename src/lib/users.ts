@@ -9,6 +9,10 @@ export type User = {
   /** Média das avaliações (0–5). */
   rating: number;
   reviewCount: number;
+  /** Data de registo (ISO, só o mês e o ano são apresentados). */
+  memberSince: string;
+  /** Partilhas (doações, empréstimos, alugueres) concluídas. */
+  completedShares: number;
 };
 
 // PLACEHOLDERS: trocar pelas fotografias reais quando forem exportadas do Figma
@@ -30,6 +34,8 @@ export const users: Record<string, User> = {
     avatar,
     rating: 4.9,
     reviewCount: 18,
+    memberSince: "2025-03-01",
+    completedShares: 32,
   },
   "user-2": {
     id: "user-2",
@@ -41,6 +47,8 @@ export const users: Record<string, User> = {
     avatar,
     rating: 4.7,
     reviewCount: 9,
+    memberSince: "2025-06-01",
+    completedShares: 14,
   },
   "user-3": {
     id: "user-3",
@@ -52,6 +60,8 @@ export const users: Record<string, User> = {
     avatar,
     rating: 4.8,
     reviewCount: 12,
+    memberSince: "2025-01-01",
+    completedShares: 21,
   },
   "user-4": {
     id: "user-4",
@@ -63,6 +73,8 @@ export const users: Record<string, User> = {
     avatar,
     rating: 5,
     reviewCount: 4,
+    memberSince: "2025-09-01",
+    completedShares: 5,
   },
   "user-5": {
     id: "user-5",
@@ -74,6 +86,8 @@ export const users: Record<string, User> = {
     avatar,
     rating: 4.6,
     reviewCount: 7,
+    memberSince: "2025-04-01",
+    completedShares: 9,
   },
   // Utilizador com sessão iniciada (página "A minha conta")
   "user-6": {
@@ -86,6 +100,8 @@ export const users: Record<string, User> = {
     avatar: avatarJoao,
     rating: 4.8,
     reviewCount: 6,
+    memberSince: "2025-10-01",
+    completedShares: 6,
   },
 };
 
