@@ -1,4 +1,4 @@
-import type { ListingType, ObjectListing } from "@/src/lib/objects";
+import type { ListingType, ObjectListing } from "@/src/lib/mocks/objects";
 
 export type Condition = {
   icon: string;

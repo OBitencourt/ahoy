@@ -4,7 +4,7 @@ import { redirect } from "next/navigation";
 import { Suspense } from "react";
 import AccountSettings from "@/src/components/account/accountSettings";
 import { auth } from "@/src/lib/auth";
-import { getCurrentUser } from "@/src/lib/users";
+import { getCurrentUser } from "@/src/lib/mocks/users";
 
 export const metadata: Metadata = {
   title: "A minha conta — Ahoy",

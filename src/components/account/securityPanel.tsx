@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { savePassword } from "@/src/lib/account";
+import { savePassword } from "@/src/lib/mocks/account";
 import { passwordSchema, type PasswordFormData } from "@/src/utils/profile";
 import {
   primaryButtonClassName,

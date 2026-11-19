@@ -8,7 +8,7 @@ import {
   listingLabels,
   type ListingType,
   type ObjectListing,
-} from "@/src/lib/objects";
+} from "@/src/lib/mocks/objects";
 
 type Filter = ListingType | "todos";
 

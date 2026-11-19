@@ -6,7 +6,7 @@ import { redirect } from "next/navigation";
 import { Suspense } from "react";
 import MyObjects from "@/src/components/myObjects/myObjects";
 import { auth } from "@/src/lib/auth";
-import { getMyListings } from "@/src/lib/myListings";
+import { getMyListings } from "@/src/lib/mocks/myListings";
 
 export const metadata: Metadata = {
   title: "Os meus artefactos — Ahoy",

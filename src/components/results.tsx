@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { objects } from "@/src/lib/objects";
+import { objects } from "@/src/lib/mocks/objects";
 import Chip from "./chip";
 import ObjectCard from "./objectCard";
 import Pagination from "./pagination";

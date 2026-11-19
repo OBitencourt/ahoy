@@ -4,8 +4,8 @@ import Image from "next/image";
 import { useRef, useState, type ChangeEvent } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { saveProfile } from "@/src/lib/account";
-import type { User } from "@/src/lib/users";
+import { saveProfile } from "@/src/lib/mocks/account";
+import type { User } from "@/src/lib/mocks/users";
 import { profileSchema, type ProfileFormData } from "@/src/utils/profile";
 import FormField from "./formField";
 import {

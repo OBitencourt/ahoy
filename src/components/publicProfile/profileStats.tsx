@@ -1,5 +1,5 @@
 import Image from "next/image";
-import type { User } from "@/src/lib/users";
+import type { User } from "@/src/lib/mocks/users";
 
 const ratingFormat = new Intl.NumberFormat("pt-PT", { maximumFractionDigits: 1 });
 

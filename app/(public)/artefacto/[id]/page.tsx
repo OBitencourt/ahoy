@@ -6,8 +6,8 @@ import ProductDescription from "@/src/components/product/productDescription";
 import ProductGallery from "@/src/components/product/productGallery";
 import ProductSummary from "@/src/components/product/productSummary";
 import SimilarObjects from "@/src/components/product/similarObject";
-import { getObjectById, getSimilarObjects, objects } from "@/src/lib/objects";
-import { getUserById } from "@/src/lib/users";
+import { getObjectById, getSimilarObjects, objects } from "@/src/lib/mocks/objects";
+import { getUserById } from "@/src/lib/mocks/users";
 
 type ProductPageProps = {
   params: Promise<{ id: string }>;

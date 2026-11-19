@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { savePreferences } from "@/src/lib/account";
+import { savePreferences } from "@/src/lib/mocks/account";
 import { primaryButtonClassName } from "./formStyles";
 import StatusBanner, { type Status } from "./statusBanner";
 

@@ -1,5 +1,5 @@
 import ObjectCard from "@/src/components/objectCard";
-import type { ObjectListing } from "@/src/lib/objects";
+import type { ObjectListing } from "@/src/lib/mocks/objects";
 
 export default function SimilarObjects({
   objects,

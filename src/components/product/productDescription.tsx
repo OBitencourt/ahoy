@@ -1,6 +1,6 @@
 import Image from "next/image";
-import type { ObjectListing } from "@/src/lib/objects";
-import type { User } from "@/src/lib/users";
+import type { ObjectListing } from "@/src/lib/mocks/objects";
+import type { User } from "@/src/lib/mocks/users";
 import { getListingCopy } from "./listing-copy";
 
 export default function ProductDescription({

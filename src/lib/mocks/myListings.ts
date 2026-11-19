@@ -1,4 +1,4 @@
-import { getObjectById, type ObjectListing } from "@/src/lib/objects";
+import { getObjectById, type ObjectListing } from "@/src/lib/mocks/objects";
 
 export type ListingStatus = "ativo" | "indisponivel" | "concluido";
 

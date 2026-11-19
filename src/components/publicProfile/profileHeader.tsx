@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import type { User } from "@/src/lib/users";
+import type { User } from "@/src/lib/mocks/users";
 import ProfileActions from "./profileActions";
 import StarRating from "./starRating";
 

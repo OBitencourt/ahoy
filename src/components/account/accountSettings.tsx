@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import type { User } from "@/src/lib/users";
+import type { User } from "@/src/lib/mocks/users";
 import PersonalInfoPanel from "./personalInfoPanel";
 import PreferencesPanel from "./preferencesPanel";
 import SecurityPanel from "./securityPanel";

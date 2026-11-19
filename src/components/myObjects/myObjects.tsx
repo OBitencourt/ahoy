@@ -4,8 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import Chip from "@/src/components/chip";
-import { listingLabels, type ListingType } from "@/src/lib/objects";
-import type { ListingStatus, MyListing } from "@/src/lib/myListings";
+import { listingLabels, type ListingType } from "@/src/lib/mocks/objects";
+import type { ListingStatus, MyListing } from "@/src/lib/mocks/myListings";
+import { badgeColors, badgeIcons } from "@/src/utils/artifactDetails";
 
 type StatusFilter = ListingStatus | "todos";
 
@@ -26,18 +27,6 @@ const publicationLabels: Record<ListingStatus, string> = {
   ativo: "Publicado · disponível",
   indisponivel: "Publicado · indisponível",
   concluido: "Publicado · entregue",
-};
-
-const badgeIcons: Record<ListingType, string> = {
-  doacao: "/assets/gift-sm.svg",
-  emprestimo: "/assets/repeat-2-sm.svg",
-  aluguer: "/assets/coins-sm.svg",
-};
-
-const badgeColors: Record<ListingType, string> = {
-  doacao: "bg-mint",
-  emprestimo: "bg-sky",
-  aluguer: "bg-sand",
 };
 
 const menuItemClassName =

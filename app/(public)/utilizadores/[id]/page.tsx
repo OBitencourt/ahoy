@@ -4,8 +4,8 @@ import { Suspense } from "react";
 import ProfileHeader from "@/src/components/publicProfile/profileHeader";
 import ProfileObjects from "@/src/components/publicProfile/profileObjects";
 import ProfileStats from "@/src/components/publicProfile/profileStats";
-import { objects } from "@/src/lib/objects";
-import { getUserById, users } from "@/src/lib/users";
+import { objects } from "@/src/lib/mocks/objects";
+import { getUserById, users } from "@/src/lib/mocks/users";
 
 type PageProps = { params: Promise<{ id: string }> };
 
@@ -28,7 +28,7 @@ function ProfileSkeleton() {
         <div className="flex flex-1 flex-col gap-3">
           <div className="h-10 w-72 rounded-xl bg-sky" />
           <div className="h-6 w-40 rounded-xl bg-sky" />
-          <div className="h-13 w-full max-w-[728px] rounded-xl bg-sky" />
+          <div className="h-13 w-full max-w-182 rounded-xl bg-sky" />
         </div>
       </div>
       <div className="h-16 rounded-xl bg-sky" />
@@ -60,7 +60,7 @@ async function ProfileContent({ params }: PageProps) {
 
 export default function PublicProfilePage({ params }: PageProps) {
   return (
-    <main className="flex flex-col gap-10 px-6 pb-10 pt-8 xl:px-[120px]">
+    <main className="flex flex-col gap-10 px-6 pb-10 pt-8 xl:px-30">
       <Suspense fallback={<ProfileSkeleton />}>
         <ProfileContent params={params} />
       </Suspense>

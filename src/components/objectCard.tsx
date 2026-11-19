@@ -3,19 +3,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { listingLabels, type ListingType, type ObjectListing } from "@/src/lib/objects";
+import { listingLabels, type ListingType, type ObjectListing } from "@/src/lib/mocks/objects";
+import { badgeColors, badgeIcons } from "../utils/artifactDetails";
 
-const badgeIcons: Record<ListingType, string> = {
-  doacao: "/assets/gift-sm.svg",
-  emprestimo: "/assets/repeat-2-sm.svg",
-  aluguer: "/assets/coins-sm.svg",
-};
-
-const badgeColors: Record<ListingType, string> = {
-  doacao: "bg-mint",
-  emprestimo: "bg-sky",
-  aluguer: "bg-sand",
-};
 
 export default function ObjectCard({
   object,
