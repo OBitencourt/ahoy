@@ -28,9 +28,6 @@ async function EditArtifactContent({ params }: PageProps) {
   const object = getObjectById(id);
 
   if (!object) notFound();
-
-  // MOCK: a disponibilidade vem dos anúncios de exemplo (myListings.ts).
-  // Com base de dados, validar também que o artefacto pertence a este utilizador.
   const listing = getMyListings().find((item) => item.object.id === id);
   const available = listing ? listing.status === "ativo" : true;
 

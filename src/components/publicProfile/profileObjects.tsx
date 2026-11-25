@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import Chip from "@/src/components/chip";
-import ObjectCard from "@/src/components/objectCard";
+import Chip from "@/src/components/explore/chip";
+import ObjectCard from "@/src/components/explore/objectCard";
 import {
   listingLabels,
   type ListingType,

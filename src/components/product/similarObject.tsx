@@ -1,4 +1,4 @@
-import ObjectCard from "@/src/components/objectCard";
+import ObjectCard from "@/src/components/explore/objectCard";
 import type { ObjectListing } from "@/src/lib/mocks/objects";
 
 export default function SimilarObjects({

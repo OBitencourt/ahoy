@@ -1,5 +1,60 @@
 import Image from "next/image";
 import Link from "next/link";
+import { headers } from "next/headers";
+import { Suspense } from "react";
+import { auth } from "@/src/lib/auth";
+import NavLinks from "@/src/components/header/navLinks";
+
+// Lê a sessão no servidor: foto de perfil (ex.: Google) ou "Entrar" se não houver sessão
+async function AccountArea() {
+  const session = await auth.api.getSession({ headers: await headers() });
+
+  if (!session) {
+    return (
+      <Link
+        href="/login"
+        className="flex h-11 items-center whitespace-nowrap rounded-xl border border-line bg-white px-5 text-sm font-bold text-on-teal transition-colors hover:bg-sky"
+      >
+        Entrar
+      </Link>
+    );
+  }
+
+  const { name, image } = session.user;
+  const initials = name
+    .split(" ")
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((part) => part[0])
+    .join("")
+    .toUpperCase();
+
+  return (
+    <Link
+      href="/perfil"
+      className="flex cursor-pointer items-center gap-2"
+      aria-label="Menu da conta"
+    >
+      {image ? (
+        <Image
+          src={image}
+          width={40}
+          height={40}
+          alt={`Fotografia de perfil de ${name}`}
+          className="size-10 rounded-full object-cover"
+        />
+      ) : (
+        <span
+          aria-hidden="true"
+          className="flex size-10 items-center justify-center rounded-full bg-sky text-sm font-bold text-navy"
+        >
+          {initials}
+        </span>
+      )}
+      <Image src="/assets/chevron-down.svg" width={16} height={16} alt="" />
+    </Link>
+  );
+}
 
 export default function Navigation() {
   return (
@@ -12,34 +67,10 @@ export default function Navigation() {
           alt=""
           className="h-[47.83px] w-[53.85px] shrink-0"
         />
-        <span className="font-brand text-[30px] font-extrabold text-navy">
-          Ahoy
-        </span>
+        <span className="font-brand text-[30px] font-extrabold text-navy">Ahoy</span>
       </Link>
 
-      <nav className="flex h-full items-center gap-8" aria-label="Principal">
-        <Link
-          href="/explorar"
-          aria-current="page"
-          className="relative flex h-full items-center text-sm font-bold text-navy after:absolute after:bottom-0 after:left-0 after:h-[3px] after:w-[61px] after:rounded-sm after:bg-teal after:content-['']"
-        >
-          Explorar
-        </Link>
-        <Link
-          href="/pesquisar"
-          className="flex items-center gap-2 text-sm font-medium text-muted"
-        >
-          <Image src="/assets/search.svg" width={20} height={20} alt="" />
-          <span>Pesquisar</span>
-        </Link>
-        <Link
-          href="/mensagens"
-          className="flex items-center gap-2 text-sm font-medium text-ink"
-        >
-          <Image src="/assets/message-circle.svg" width={20} height={20} alt="" />
-          <span>Mensagens</span>
-        </Link>
-      </nav>
+      <NavLinks />
 
       <div className="flex items-center gap-6">
         <Link
@@ -49,21 +80,10 @@ export default function Navigation() {
           <Image src="/assets/plus.svg" width={20} height={20} alt="" />
           <span>Publicar</span>
         </Link>
-        <Link
-          href="/perfil"
-          className="flex cursor-pointer items-center gap-2"
-          aria-label="Menu da conta"
-          aria-haspopup="menu"
-        >
-          <Image
-            src="/assets/profile.png"
-            width={40}
-            height={40}
-            alt="Fotografia de perfil"
-            className="size-10 rounded-full object-cover"
-          />
-          <Image src="/assets/chevron-down.svg" width={16} height={16} alt="" />
-        </Link>
+
+        <Suspense fallback={<div className="size-10 animate-pulse rounded-full bg-sky" />}>
+          <AccountArea />
+        </Suspense>
       </div>
     </header>
   );

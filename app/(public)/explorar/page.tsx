@@ -1,6 +1,6 @@
 import { SignOutButton } from "@/src/components/logoutButton";
-import Results from "@/src/components/results";
-import SearchFilters from "@/src/components/searchFilters";
+import Results from "@/src/components/explore/results";
+import SearchFilters from "@/src/components/explore/searchFilters";
 
 export default function Home() {
   return (

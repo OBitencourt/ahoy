@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import Chip from "@/src/components/chip";
+import Chip from "@/src/components/explore/chip";
 import { listingLabels, type ListingType } from "@/src/lib/mocks/objects";
 import type { ListingStatus, MyListing } from "@/src/lib/mocks/myListings";
 import { badgeColors, badgeIcons } from "@/src/utils/artifactDetails";
